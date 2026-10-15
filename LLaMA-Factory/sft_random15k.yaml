@@ -1,0 +1,47 @@
+# Random-15K baseline. Same hyperparameters as README section 4, with these fixes:
+#   - '#' comments (the README's '//' comments break YAML parsing)
+#   - checkpoints every 500 steps, only the last 2 kept (README: every 100 steps, all kept)
+#   - overwrite_output_dir: false so a job killed by the time limit resumes from its last checkpoint
+#   - ZeRO-2 without CPU offload on an H200 (much faster; same maths)
+# Place this file in LLaMA-Factory/ and run it from there.
+
+### model
+model_name_or_path: Qwen/Qwen2.5-3B-Instruct
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z2_config.json   # H200 (141 GB). On A100-80GB or if you hit OOM: examples/deepspeed/ds_z3_offload_config.json
+flash_attn: fa2                                   # if flash-attn will not install: sdpa
+
+### dataset
+dataset: random15k
+template: qwen
+cutoff_len: 16384
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen25_3b_instruct/random15k
+logging_steps: 1
+save_steps: 500
+save_total_limit: 2
+plot_loss: true
+overwrite_output_dir: false
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8      # effective batch 8 on 1 GPU; with 2 GPUs use 4 to keep it at 8
+learning_rate: 5.0e-6
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.0
+bf16: true
+ddp_timeout: 180000000
+seed: 42
+
+### logging
+report_to: none                    # 'none' if you skip wandb
+run_name: random15k
