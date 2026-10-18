@@ -1,25 +1,27 @@
 #!/bin/bash
-# Submit from inside LLaMA-Factory/:   cd LLaMA-Factory && sbatch run_training.sh
-# Fixes vs README: real time limit, enough CPUs for data preprocessing, correct env name and YAML path.
-
-#SBATCH --job-name=sft-random15k
+#SBATCH --job-name=sft-rand-h200
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=16          # README asked for 2; preprocessing uses 16 workers
-#SBATCH --time=48:00:00             # README had 1:00:00, far too short. Check the max: sinfo -p h200_normal_q -o "%l"
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=200G
+#SBATCH --time=06:00:00
 #SBATCH --partition=h200_normal_q
-#SBATCH --account=tml_2026          # your class account
+#SBATCH --account=tml_2026
 #SBATCH --gres=gpu:1
 #SBATCH --output=%x-%j.out
 
-module load Miniconda3
-module load CUDA/12.6.0
-source activate sft                 # training env from the runbook (README said 'your_env_name')
+module load Miniconda3 CUDA/12.6.0
 
-cd "$SLURM_SUBMIT_DIR"              # LLaMA-Factory/, so 'data/' and 'examples/deepspeed/' resolve
+source /apps/common/software/Miniconda3/25.11.1-1/etc/profile.d/conda.sh
+conda activate sft
 
-export WANDB_PROJECT=sft-reasoning
+cd "$SLURM_SUBMIT_DIR"
+
 export FORCE_TORCHRUN=1
+export WANDB_PROJECT=sft-reasoning
+export TRITON_CACHE_DIR="/tmp/${USER}_triton_${SLURM_JOB_ID}"
+mkdir -p "$TRITON_CACHE_DIR"
 
 nvidia-smi
+
 llamafactory-cli train sft_random15k.yaml

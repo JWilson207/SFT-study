@@ -2,3 +2,19 @@ __pycache__/
 *.pyc
 eval/outputs/
 eval/completions/
+
+saves/
+*.out
+LLaMA-Factory/data/*.json
+data/*.json
+__pycache__/
+.triton/
+
+# Python build artifacts
+*.egg-info/
+build/
+dist/
+
+# Raw dataset downloads and local caches
+raw_data/
+*.jsonl
