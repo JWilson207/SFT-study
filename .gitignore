@@ -18,3 +18,6 @@ dist/
 # Raw dataset downloads and local caches
 raw_data/
 *.jsonl
+
+Initializing
+wandb/

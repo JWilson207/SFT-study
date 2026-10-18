@@ -6,7 +6,7 @@ stage: sft
 do_train: true
 finetuning_type: full
 deepspeed: examples/deepspeed/ds_z2_config.json
-flash_attn: fa2
+flash_attn: sdpa # fa2
 
 ### dataset
 dataset: advanced15k
@@ -23,6 +23,8 @@ save_steps: 250
 save_total_limit: 2
 plot_loss: true
 overwrite_output_dir: false
+resume_from_checkpoint: saves/qwen25_3b_instruct/advanced15k/checkpoint-2500
+max_steps: 3750
 
 ### train
 per_device_train_batch_size: 1

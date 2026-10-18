@@ -13,7 +13,7 @@ stage: sft
 do_train: true
 finetuning_type: full
 deepspeed: examples/deepspeed/ds_z2_config.json   # H200 (141 GB). On A100-80GB or if you hit OOM: examples/deepspeed/ds_z3_offload_config.json
-flash_attn: fa2                                   # if flash-attn will not install: sdpa
+flash_attn: sdpa #fa2                                   # if flash-attn will not install: sdpa
 
 ### dataset
 dataset: random15k
@@ -30,7 +30,8 @@ save_steps: 250
 save_total_limit: 2
 plot_loss: true
 overwrite_output_dir: false
-resume_from_checkpoint: saves/qwen25_3b_instruct/random15k/checkpoint-500
+resume_from_checkpoint: saves/qwen25_3b_instruct/random15k/checkpoint-3500
+max_steps: 3750
 
 ### train
 per_device_train_batch_size: 1

@@ -1,0 +1,73 @@
+
+### model
+
+model_name_or_path: Qwen/Qwen2.5-3B-Instruct
+
+
+
+### method
+
+stage: sft
+
+do_train: true
+
+finetuning_type: full
+
+flash_attn: sdpa
+
+deepspeed: examples/deepspeed/ds_z2_config.json
+
+
+
+### dataset
+
+dataset: advanced15k
+
+template: qwen
+
+cutoff_len: 2048
+
+overwrite_cache: true
+
+preprocessing_num_workers: 8
+
+
+
+### output
+
+output_dir: saves/qwen25_3b_instruct/advanced15k
+
+logging_steps: 1
+
+save_steps: 250
+
+save_total_limit: 3
+
+plot_loss: true
+
+overwrite_output_dir: false
+
+
+
+### train
+
+resume_from_checkpoint: saves/qwen25_3b_instruct/advanced15k/checkpoint-2500
+
+per_device_train_batch_size: 2
+
+gradient_accumulation_steps: 8
+
+learning_rate: 1.0e-5
+
+num_train_epochs: 3.0
+
+max_steps: 2502
+
+lr_scheduler_type: cosine
+
+warmup_ratio: 0.1
+
+bf16: true
+
+ddp_timeout: 180000000
+
