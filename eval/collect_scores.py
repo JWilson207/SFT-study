@@ -12,8 +12,8 @@ import os
 import re
 import sys
 
-LB6 = ["cn_math_2024", "kaoyan", "amc", "minerva", "olympiadbench", "gpqa"]
-EXTRA = ["aime", "math"]
+LB6 = ["cn_math_2024", "kaoyan", "amc", "minerva", "olympiadbench", "gpqa", "aime"]
+EXTRA = ["math"]
 
 
 def read_log(path):
@@ -27,26 +27,32 @@ def read_log(path):
 
 def main(dirs):
     cols = LB6 + EXTRA
-    header = ["run"] + cols + ["AVG_LB6"]
-    print("pass@8 (Acc)")
-    print("| " + " | ".join(header) + " |")
-    print("|" + "---|" * len(header))
-    for d in dirs:
-        vals = {b: read_log(os.path.join(d, f"log_{b}.txt"))[0] for b in cols}
-        lb = [vals[b] for b in LB6 if vals[b] is not None]
-        avg = sum(lb) / len(LB6) if len(lb) == len(LB6) else None
-        cells = [os.path.basename(os.path.normpath(d))]
-        cells += ["-" if vals[b] is None else f"{vals[b]:.3f}" for b in cols]
-        cells.append("-" if avg is None else f"{avg:.3f}")
-        print("| " + " | ".join(cells) + " |")
-    print("\nPass@1 (mean over 8 samples)")
-    print("| " + " | ".join(["run"] + cols) + " |")
-    print("|" + "---|" * (len(cols) + 1))
-    for d in dirs:
-        vals = {b: read_log(os.path.join(d, f"log_{b}.txt"))[1] for b in cols}
-        cells = [os.path.basename(os.path.normpath(d))]
-        cells += ["-" if vals[b] is None else f"{vals[b]:.3f}" for b in cols]
-        print("| " + " | ".join(cells) + " |")
+    headers = ["run"] + cols + ["AVG_LB6"]
+    
+    col_w = 14
+    run_w = 16
+
+    for metric_name, idx in [("pass@8 (Acc, leaderboard metric)", 0), ("Pass@1", 1)]:
+        print(f"\n{metric_name}")
+        header_str = f"{'run':<{run_w}}" + "".join([f"{c[:col_w-2]:>{col_w}}" for c in cols]) + f"{'AVG_LB6':>{col_w}}"
+        print(header_str)
+
+        for d in dirs:
+            vals = {b: read_log(os.path.join(d, f"log_{b}.txt"))[idx] for b in cols}
+            lb = [vals[b] for b in LB6 if vals[b] is not None]
+            
+            cells = [f"{os.path.basename(os.path.normpath(d)):<{run_w}}"]
+            for b in cols:
+                v = vals[b]
+                cells.append(f"{'-':>{col_w}}" if v is None else f"{v:>{col_w}.3f}")
+            
+            if len(lb) == len(LB6):
+                avg_str = f"{sum(lb) / len(LB6):>{col_w}.3f}"
+            else:
+                avg_str = f"{f'({len(lb)}/{len(LB6)} complete)':>{col_w}}"
+            cells.append(avg_str)
+            
+            print("".join(cells))
 
 
 if __name__ == "__main__":
