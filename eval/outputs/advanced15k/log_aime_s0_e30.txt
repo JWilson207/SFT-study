@@ -1,0 +1,124 @@
+INFO 10-24 19:53:15 [__init__.py:235] Automatically detected platform cuda.
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+current stop list: None
+Random seed set as 0
+current eval model: /home/jackvw/models/sft/advanced15k/checkpoint-3750
+use n = 8, generation epoch is: 1
+available_gpus: ['0']
+  0%|          | 0/30 [00:00<?, ?it/s]100%|██████████| 30/30 [00:00<00:00, 734.41it/s]
+<|im_start|>system
+Please reason step by step, and put your final answer within \boxed{}.<|im_end|>
+<|im_start|>user
+Every morning Aya goes for a $9$-kilometer-long walk and stops at a coffee shop afterwards. When she walks at a constant speed of $s$ kilometers per hour, the walk takes her 4 hours, including $t$ minutes spent in the coffee shop. When she walks $s+2$ kilometers per hour, the walk takes her 2 hours and 24 minutes, including $t$ minutes spent in the coffee shop. Suppose Aya walks at $s+\frac{1}{2}$ kilometers per hour. Find the number of minutes the walk takes her, including the $t$ minutes spent in the coffee shop.<|im_end|>
+<|im_start|>assistant
+
+INFO 10-24 19:53:47 [config.py:1604] Using max model len 32768
+INFO 10-24 19:53:50 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 10-24 19:53:52 [core.py:572] Waiting for init message from front-end.
+INFO 10-24 19:53:52 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='/home/jackvw/models/sft/advanced15k/checkpoint-3750', speculative_config=None, tokenizer='/home/jackvw/models/sft/advanced15k/checkpoint-3750', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/home/jackvw/models/sft/advanced15k/checkpoint-3750, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 10-24 19:53:58 [parallel_state.py:1102] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 10-24 19:53:58 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+INFO 10-24 19:53:58 [gpu_model_runner.py:1843] Starting to load model /home/jackvw/models/sft/advanced15k/checkpoint-3750...
+INFO 10-24 19:53:58 [gpu_model_runner.py:1875] Loading model from scratch...
+INFO 10-24 19:53:59 [cuda.py:290] Using Flash Attention backend on V1 engine.
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:07<00:07,  7.13s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:08<00:00,  3.98s/it]
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:08<00:00,  4.46s/it]
+
+INFO 10-24 19:54:08 [default_loader.py:262] Loading weights took 8.93 seconds
+INFO 10-24 19:54:09 [gpu_model_runner.py:1892] Model loading took 5.7916 GiB and 9.932724 seconds
+INFO 10-24 19:54:22 [backends.py:530] Using cache directory: /home/jackvw/.cache/vllm/torch_compile_cache/d9cdc2f1e4/rank_0_0/backbone for vLLM's torch.compile
+INFO 10-24 19:54:22 [backends.py:541] Dynamo bytecode transform time: 13.61 s
+INFO 10-24 19:54:27 [backends.py:194] Cache the graph for dynamic shape for later use
+[rank0]:W1024 19:54:28.090000 1127930 site-packages/torch/_inductor/utils.py:1250] [0/0] Not enough SMs to use max_autotune_gemm mode
+INFO 10-24 19:54:50 [backends.py:215] Compiling a graph for dynamic shape takes 27.25 s
+INFO 10-24 19:54:58 [monitor.py:34] torch.compile takes 40.85 s in total
+INFO 10-24 19:55:00 [gpu_worker.py:255] Available KV cache memory: 14.48 GiB
+INFO 10-24 19:55:00 [kv_cache_utils.py:833] GPU KV cache size: 421,824 tokens
+INFO 10-24 19:55:00 [kv_cache_utils.py:837] Maximum concurrency for 32,768 tokens per request: 12.87x
+Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 2/67 [00:00<00:03, 16.33it/s]Capturing CUDA graph shapes:   7%|▋         | 5/67 [00:00<00:03, 19.58it/s]Capturing CUDA graph shapes:  12%|█▏        | 8/67 [00:00<00:02, 21.11it/s]Capturing CUDA graph shapes:  16%|█▋        | 11/67 [00:00<00:02, 22.03it/s]Capturing CUDA graph shapes:  21%|██        | 14/67 [00:00<00:02, 21.10it/s]Capturing CUDA graph shapes:  25%|██▌       | 17/67 [00:00<00:02, 22.42it/s]Capturing CUDA graph shapes:  30%|██▉       | 20/67 [00:00<00:01, 23.86it/s]Capturing CUDA graph shapes:  34%|███▍      | 23/67 [00:01<00:01, 24.82it/s]Capturing CUDA graph shapes:  39%|███▉      | 26/67 [00:01<00:01, 25.63it/s]Capturing CUDA graph shapes:  43%|████▎     | 29/67 [00:01<00:01, 26.34it/s]Capturing CUDA graph shapes:  48%|████▊     | 32/67 [00:01<00:01, 26.83it/s]Capturing CUDA graph shapes:  52%|█████▏    | 35/67 [00:01<00:01, 27.57it/s]Capturing CUDA graph shapes:  57%|█████▋    | 38/67 [00:01<00:01, 27.95it/s]Capturing CUDA graph shapes:  61%|██████    | 41/67 [00:01<00:00, 28.33it/s]Capturing CUDA graph shapes:  67%|██████▋   | 45/67 [00:01<00:00, 27.48it/s]Capturing CUDA graph shapes:  73%|███████▎  | 49/67 [00:01<00:00, 29.10it/s]Capturing CUDA graph shapes:  79%|███████▉  | 53/67 [00:02<00:00, 31.00it/s]Capturing CUDA graph shapes:  85%|████████▌ | 57/67 [00:02<00:00, 31.62it/s]Capturing CUDA graph shapes:  91%|█████████ | 61/67 [00:02<00:00, 32.39it/s]Capturing CUDA graph shapes:  97%|█████████▋| 65/67 [00:02<00:00, 30.18it/s]Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:02<00:00, 27.03it/s]
+INFO 10-24 19:55:03 [gpu_model_runner.py:2485] Graph capturing finished in 3 secs, took 0.51 GiB
+INFO 10-24 19:55:03 [core.py:193] init engine (profile, create kv cache, warmup model) took 54.30 seconds
+Adding requests:   0%|          | 0/30 [00:00<?, ?it/s]Adding requests: 100%|██████████| 30/30 [00:00<00:00, 1284.56it/s]
+Processed prompts:   0%|          | 0/240 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   3%|▎         | 8/240 [21:09<10:13:28, 158.66s/it, est. speed input: 1.01 toks/s, output: 119.87 toks/s]Processed prompts:   7%|▋         | 16/240 [21:20<4:06:57, 66.15s/it, est. speed input: 1.84 toks/s, output: 245.19 toks/s] Processed prompts:  10%|█         | 24/240 [21:27<2:10:45, 36.32s/it, est. speed input: 2.51 toks/s, output: 373.83 toks/s]Processed prompts:  13%|█▎        | 32/240 [21:30<1:16:43, 22.13s/it, est. speed input: 3.15 toks/s, output: 491.53 toks/s]Processed prompts:  17%|█▋        | 40/240 [21:38<48:22, 14.51s/it, est. speed input: 3.70 toks/s, output: 625.95 toks/s]  Processed prompts:  20%|██        | 48/240 [28:01<1:22:49, 25.88s/it, est. speed input: 3.58 toks/s, output: 531.26 toks/s]Processed prompts:  23%|██▎       | 56/240 [33:09<1:31:56, 29.98s/it, est. speed input: 3.75 toks/s, output: 556.67 toks/s]Processed prompts:  27%|██▋       | 64/240 [37:24<1:29:43, 30.59s/it, est. speed input: 3.76 toks/s, output: 569.76 toks/s]Processed prompts:  30%|███       | 72/240 [38:04<1:03:16, 22.60s/it, est. speed input: 3.97 toks/s, output: 610.13 toks/s]Processed prompts:  33%|███▎      | 80/240 [38:40<45:25, 17.03s/it, est. speed input: 4.34 toks/s, output: 669.93 toks/s]  Processed prompts:  37%|███▋      | 88/240 [41:28<46:11, 18.23s/it, est. speed input: 4.38 toks/s, output: 698.18 toks/s]Processed prompts:  40%|████      | 96/240 [49:42<1:15:29, 31.46s/it, est. speed input: 3.88 toks/s, output: 663.40 toks/s]Processed prompts:  43%|████▎     | 104/240 [54:12<1:12:54, 32.17s/it, est. speed input: 3.74 toks/s, output: 652.25 toks/s]Processed prompts:  47%|████▋     | 112/240 [57:05<1:01:48, 28.98s/it, est. speed input: 3.83 toks/s, output: 674.13 toks/s]Processed prompts:  50%|█████     | 120/240 [57:53<44:04, 22.04s/it, est. speed input: 4.04 toks/s, output: 711.40 toks/s]  Processed prompts:  53%|█████▎    | 128/240 [1:01:53<45:39, 24.46s/it, est. speed input: 4.08 toks/s, output: 713.34 toks/s]Processed prompts:  57%|█████▋    | 136/240 [1:02:51<33:26, 19.29s/it, est. speed input: 4.19 toks/s, output: 752.67 toks/s]Processed prompts:  60%|██████    | 144/240 [1:12:26<56:06, 35.07s/it, est. speed input: 3.84 toks/s, output: 687.09 toks/s]Processed prompts:  63%|██████▎   | 152/240 [1:15:26<45:54, 31.30s/it, est. speed input: 4.09 toks/s, output: 700.15 toks/s]Processed prompts:  67%|██████▋   | 160/240 [1:16:43<33:04, 24.80s/it, est. speed input: 4.17 toks/s, output: 728.83 toks/s]Processed prompts:  70%|███████   | 168/240 [1:16:59<21:33, 17.96s/it, est. speed input: 4.46 toks/s, output: 777.74 toks/s]Processed prompts:  73%|███████▎  | 176/240 [1:18:34<17:11, 16.12s/it, est. speed input: 4.72 toks/s, output: 792.70 toks/s]Processed prompts:  77%|███████▋  | 184/240 [1:32:09<39:03, 41.85s/it, est. speed input: 4.18 toks/s, output: 705.91 toks/s]Processed prompts:  80%|████████  | 192/240 [1:35:42<29:50, 37.30s/it, est. speed input: 4.25 toks/s, output: 716.80 toks/s]Processed prompts:  83%|████████▎ | 200/240 [1:36:42<18:53, 28.34s/it, est. speed input: 4.45 toks/s, output: 736.42 toks/s]Processed prompts:  87%|████████▋ | 208/240 [1:37:06<11:03, 20.74s/it, est. speed input: 4.55 toks/s, output: 767.47 toks/s]Processed prompts:  90%|█████████ | 216/240 [1:47:12<14:53, 37.23s/it, est. speed input: 4.23 toks/s, output: 735.85 toks/s]Processed prompts:  93%|█████████▎| 224/240 [1:48:47<07:54, 29.65s/it, est. speed input: 4.29 toks/s, output: 754.90 toks/s]Processed prompts:  97%|█████████▋| 232/240 [1:49:22<02:56, 22.05s/it, est. speed input: 4.78 toks/s, output: 784.46 toks/s]Processed prompts: 100%|██████████| 240/240 [1:49:28<00:00, 15.66s/it, est. speed input: 4.94 toks/s, output: 798.22 toks/s]Processed prompts: 100%|██████████| 240/240 [1:49:28<00:00, 15.66s/it, est. speed input: 4.94 toks/s, output: 798.22 toks/s]Processed prompts: 100%|██████████| 240/240 [1:49:28<00:00, 27.37s/it, est. speed input: 4.94 toks/s, output: 798.22 toks/s]
+llm generate done
+30
+check correct...:   0%|          | 0/30 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  37%|███▋      | 11/30 [00:00<00:00, 32.24it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  50%|█████     | 15/30 [00:02<00:02,  5.55it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  57%|█████▋    | 17/30 [00:02<00:02,  5.96it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  63%|██████▎   | 19/30 [00:02<00:01,  6.38it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+check correct...:  83%|████████▎ | 25/30 [00:02<00:00,  9.81it/s]check correct...: 100%|██████████| 30/30 [00:02<00:00, 10.09it/s]
+writing generation to jsonl file...:   0%|          | 0/30 [00:00<?, ?it/s]writing generation to jsonl file...: 100%|██████████| 30/30 [00:00<00:00, 361.46it/s]
+correct cnt / total cnt: 7/30
+Acc: 0.2333
+Pass@1: 1.875/30 = 0.0625

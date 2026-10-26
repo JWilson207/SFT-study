@@ -1,0 +1,15 @@
+INFO 10-17 21:21:57 [__init__.py:235] Automatically detected platform cuda.
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+ANTLR runtime and generated code versions disagree: 4.9.3!=4.7.2
+current stop list: None
+Random seed set as 0
+current eval model: Qwen/Qwen2.5-3B-Instruct
+use n = 8, generation epoch is: 1
+Completely same name file(./outputs/Qwen/Qwen2.5-3B-Instruct/aime/test_qwen-instruct_t0.6_k8_s0_e30.jsonl) exist, skip generation, save file and check correct
+
+--- Recovered from test_qwen-instruct_t0.6_k8_s0_e30.jsonl ---
+correct cnt / total cnt: 4/30
+Acc: 0.1333
+Pass@1: 1.625/30 = 0.0542

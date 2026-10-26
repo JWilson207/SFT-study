@@ -1,13 +1,10 @@
 __pycache__/
 *.pyc
-eval/outputs/
 eval/completions/
-
 saves/
 *.out
 LLaMA-Factory/data/*.json
 data/*.json
-__pycache__/
 .triton/
 
 # Python build artifacts
@@ -17,7 +14,12 @@ dist/
 
 # Raw dataset downloads and local caches
 raw_data/
-*.jsonl
-
 Initializing
 wandb/
+
+# Eval: keep logs + .jsonl results, skip raw completions and backups
+eval/outputs/*/completions/
+eval/outputs_backup*/
+eval/cleared_*/
+eval/outputs/base_partial_mine/
+.DS_Store
