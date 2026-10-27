@@ -21,10 +21,10 @@ Full table: [`eval/outputs/scores_table.txt`](eval/outputs/scores_table.txt).
 
 | | Link |
 |---|---|
-| Fine-tuned model (advanced15k, submitted) | `https://huggingface.co/<hf-user>/qwen25-3b-advanced15k` |
-| Fine-tuned model (random15k) | `https://huggingface.co/<hf-user>/qwen25-3b-random15k` |
-| Dataset: advanced15k (15,000 examples) | `https://huggingface.co/datasets/<hf-user>/acereason-advanced15k` |
-| Dataset: random15k (15,000 examples) | `https://huggingface.co/datasets/<hf-user>/acereason-random15k` |
+| Fine-tuned model (advanced15k, submitted) | `https://huggingface.co/seanstafford/qwen25-3b-sft-checkpoints/tree/main/advanced15k/checkpoint-3750` |
+| Fine-tuned model (random15k) | `https://huggingface.co/seanstafford/qwen25-3b-sft-checkpoints/tree/main/random15k/checkpoint-3750` |
+| Dataset: advanced15k (15,000 examples) | `https://huggingface.co/seanstafford/qwen25-3b-sft-checkpoints/tree/main/advanced15k/advanced15k.json` |
+| Dataset: random15k (15,000 examples) | `https://huggingface.co/seanstafford/qwen25-3b-sft-checkpoints/tree/main/random15k/random15k.json` |
 
 ## Repository layout
 
