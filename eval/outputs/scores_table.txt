@@ -3,13 +3,9 @@ pass@8 (Acc, leaderboard metric)
 run            cn_math_2024       kaoyan          amc      minerva olympiadbenc         gpqa         aime         math   AVG_LB6
 advanced15k           0.400        0.678        0.750        0.426        0.526        0.667        0.233        0.864   0.575
 base                  0.267        0.497        0.775        0.478        0.483        0.758        0.133        0.840   0.543
-base_partial_mine        0.267        0.528        0.775            -            -            -            -            -   (3/6 complete)
 
 Pass@1
 run            cn_math_2024       kaoyan          amc      minerva olympiadbenc         gpqa         aime         math   AVG_LB6
 advanced15k           0.100        0.274        0.338        0.230        0.274        0.170        0.062        0.635   0.231
 base                  0.117        0.229        0.419        0.306        0.280        0.299        0.054        0.658   0.275
-base_partial_mine        0.117        0.218        0.419            -            -            -            -            -   (3/6 complete)
 
-problems per benchmark: {'cn_math_2024': 30, 'kaoyan': 199, 'amc': 40, 'minerva': 272, 'olympiadbench': 675, 'gpqa': 198, 'aime': 30, 'math': 500}
-*N = only N of the benchmark's problems are scored so far (partial).
