@@ -4,7 +4,7 @@ Course project (Reasoning SFT). We fine-tune **Qwen2.5-3B-Instruct** on 15K exam
 [AceReason-1.1-SFT 100K subset](https://huggingface.co/datasets/redsgnaoh/acereason11_100k) and compare a
 **curated selection (advanced15k)** with a **random selection (random15k)** and the base model.
 
-The full write-up is in **Needs Input Jai**.
+The full write-up is in (https://github.com/JWilson207/SFT-study/blob/main/P1_SFT_ECE_6514.pdf).
 
 ## Results (pass@8, course evaluation settings)
 
